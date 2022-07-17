@@ -291,7 +291,7 @@ if filename is not None:
                 img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                st.image(img2, use_column_width=True))
+                st.image(img2, use_column_width=True)
                 plt.axis('off')
                 break
         
