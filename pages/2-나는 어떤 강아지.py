@@ -279,7 +279,6 @@ if filename is not None:
         url = baseUrl + plusUrl
         response = requests.get(url)
         html = bs(response.text)
-        html
         images = html.find_all('img')
         for image in images:
             if plusUrl.lower() in image['src'].lower():
