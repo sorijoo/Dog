@@ -247,12 +247,12 @@ def upload_and_predict2(filename):
                 url = image['src']
                 filename = label_maps_rev[idx].split("-")[-1]
                 os.system("curl -s {} -o {}".format(url, filename))
-                img = Image.open(filename)
-                img = img.convert('RGB')
-                img = img.resize((224, 224))
+                img2 = Image.open(filename)
+                img2 = img2.convert('RGB')
+                img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                plt.imshow(img)
+                plt.imshow(img2)
                 plt.axis('off')
                 break
 
@@ -268,6 +268,31 @@ if filename is not None:
     probs = pretrained_model.predict(np.expand_dims(img, axis=0))
     # text = []
     st.image(img, use_column_width=True)
+    
     for idx in probs.argsort()[0][::-1][:8]:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
+
+        baseUrl = 'https://www.akc.org/?s='
+        plusUrl = label_maps_rev[idx].split("-")[-1]
+        print(label_maps_rev[idx].split("-")[-1])
+        
+        url = baseUrl + plusUrl
+        response = requests.get(url)
+        html = bs(response.text)
+        html
+        images = html.find_all('img')
+        for image in images:
+            if plusUrl.lower() in image['src'].lower():
+                url = image['src']
+                filename = label_maps_rev[idx].split("-")[-1]
+                os.system("curl -s {} -o {}".format(url, filename))
+                img2 = Image.open(filename)
+                img2 = img2.convert('RGB')
+                img2 = img2.resize((224, 224))
+                # show image
+                plt.figure(figsize=(4, 4))
+                st.image(img2, use_column_width=True))
+                plt.axis('off')
+                break
+        
 
