@@ -10,3 +10,5 @@ scikit-learn==1.0.2
 keras
 tensorflow
 opencv-python-headless
+requests
+beautifulsoup4
