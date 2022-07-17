@@ -19,12 +19,12 @@ from PIL import Image
 
 from sklearn.model_selection import train_test_split
 
-# from keras.models import *
-# from keras.layers import *
-# from keras.optimizers import *
-# from keras.utils import *
-# from keras.callbacks import *
+from keras.models import *
+from keras.layers import *
+from keras.optimizers import *
+from keras.utils import *
+from keras.callbacks import *
 
-# from keras.applications.densenet import DenseNet121, preprocess_input
+from keras.applications.densenet import DenseNet121, preprocess_input
 
 # import cv2
