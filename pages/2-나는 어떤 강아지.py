@@ -269,7 +269,7 @@ if filename is not None:
     # text = []
     st.image(img, use_column_width=True)
     
-    for idx in probs.argsort()[0][::-1][:8]:
+    for idx in probs.argsort()[0][::-1][:3]:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
 
         baseUrl = 'https://www.akc.org/?s='
