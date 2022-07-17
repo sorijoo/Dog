@@ -8,5 +8,5 @@ pillow
 imgaug==0.4.0
 scikit-learn==1.0.2
 keras
-opencv-python
 tensorflow
+opencv-python-headless
